@@ -1,5 +1,6 @@
 import Html exposing (..)
 import Html.App as Html
+import Html.Attributes exposing (..)
 import Html.Events exposing (..)
 import Random
 
@@ -46,8 +47,6 @@ update msg model =
     NewFace newFace ->
       (Model newFace, Cmd.none)
 
-
-
 -- SUBSCRIPTIONS
 
 
@@ -63,6 +62,9 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
   div []
-    [ h1 [] [ text (toString model.dieFace) ]
+    [
+    -- h1 [] [ text (toString model.dieFace) ]
+    -- img [src ("/static/img/" ++ "1160362.jpg"), class "BUNDA"] []
+    img [src ("/static/img/" ++ (toString model.dieFace) ++ ".png")] []
     , button [ onClick Roll ] [ text "Roll" ]
     ]
